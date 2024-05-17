@@ -46,7 +46,6 @@ test('Testing 2.5 -- success', () => {
 
   myPortfolio.sellStock("GME", 2);
   expect(myPortfolio.stocks['GME']).toBe(1);
-
   
 });
 
@@ -70,8 +69,9 @@ test('Testing 2.7 -- success', () => {
   expect(myPortfolio.isEmpty()).toBe(true);
 });
 
-// 2.8 The portfolio should keep only owned symbols. 
-// If symbols are in the portfolio, that means at least one stock should be owned.
+// 2.8 It should not be possible to sell too many shares. 
+// Raise an exception (named ShareSaleException) when attempting to sell more shares than 
+// actually owned by the portfolio.
 test('Testing 2.8 -- success', () => {
   const myPortfolio = new Portfolio();
   myPortfolio.purchaseStock("GME", 3);
